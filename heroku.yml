@@ -1,0 +1,13 @@
+setup:
+  addons:
+  - plan: heroku-postgresql
+build:
+  docker:
+    web: app/Dockerfile.prod
+  config:
+    DJANGO_DEBUG: True
+    SECRET_KEY: asd
+release:
+  image: web
+run:
+  web: gunicorn config.wsgi
