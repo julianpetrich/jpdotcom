@@ -23,9 +23,9 @@ jobs:
       - name: Check logs
         run: docker-compose logs web
       - name: Make migrations
-        run: docker-compose exec web python manage.py makemigrations
+        run: docker-compose exec -T web python manage.py makemigrations
       - name: Migrate tables
-        run: docker-compose exec web python manage.py migrate
+        run: docker-compose exec -T web python manage.py migrate
       - name: Run tests
         run: docker-compose exec -T web pytest -p no:warnings --cov=.
 
