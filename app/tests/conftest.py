@@ -7,7 +7,7 @@ def create_post(db):
     def make_post(**kwargs):
         if "title" not in kwargs:
             kwargs["title"] = "title"
-        kwargs["description"] = "description"
+        kwargs["description_long"] = "description"
         return Post.objects.create(**kwargs)
 
     return make_post

@@ -5,21 +5,21 @@ from pytest_django.asserts import assertTemplateUsed
 
 @pytest.mark.django_db
 def test_posts_view(client):
-    url = reverse("posts")
+    url = reverse("post_list")
     response = client.get(url)
     assert response.status_code == 200
 
 
 @pytest.mark.django_db
 def test_posts_template(client):
-    response = client.get(reverse("posts"))
+    response = client.get(reverse("post_list"))
     assertTemplateUsed(response, "posts/post_list.html")
 
 
 @pytest.mark.django_db
 def test_posts_context(client, create_post):
     create_post()
-    response = client.get(reverse("posts"))
+    response = client.get(reverse("post_list"))
     assert "post_list" in response.context
 
 
