@@ -66,7 +66,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker
-        run: docker-compose build --build-arg CLOUD_NAME=${{ secrets.CLOUD_NAME }}
+        run: docker-compose build -f docker-compose-prod.yml --build-arg CLOUD_NAME=${{ secrets.CLOUD_NAME }}
       - name: Run Docker
         run: docker-compose up -d
       - name: Check running containers
