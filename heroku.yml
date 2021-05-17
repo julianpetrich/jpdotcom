@@ -5,8 +5,8 @@ build:
   docker:
     web: app/Dockerfile.prod
   config:
-    DJANGO_DEBUG: True
-    SECRET_KEY: asd
+    DJANGO_DEBUG: False
+    SECRET_KEY: mysecret
 release:
   image: web
 run:
