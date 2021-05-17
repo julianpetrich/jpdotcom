@@ -21,7 +21,7 @@ COPY . .
 RUN pip install black flake8 isort bandit safety
 RUN flake8 .
 RUN black . --check --exclude=migrations
-RUN isort . --check-only
+RUN isort --profile black . --check-only
 RUN bandit .
 RUN safety check
 
