@@ -53,3 +53,23 @@ jobs:
         run: bandit app/.
       - name: Run safety
         run: safety check
+
+  build:
+    runs-on: ubuntu-latest
+    name: build prod
+    env:
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      CLOUD_NAME: ${{ secrets.CLOUD_NAME }}
+      CLOUD_API_KEY: ${{ secrets.CLOUD_API_KEY }}
+      CLOUD_API_SECRET: ${{ secrets.CLOUD_API_SECRET }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Docker
+        run: docker-compose build -f docker-compose-prod.yml --build-arg CLOUD_NAME=${{ secrets.CLOUD_NAME }}
+      - name: Run Docker
+        run: docker-compose up -d
+      - name: Check running containers
+        run: docker-compose ps -a
+      - name: Check logs
+        run: docker-compose logs web

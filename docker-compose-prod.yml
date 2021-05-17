@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   web:
-    build: app/Dockerfile.prod
+    build:
+      context: app/
+      dockerfile: Dockerfile.prod
     command: gunicorn config.wsgi -b 0.0.0.0:8000
     volumes:
       - .:/code
