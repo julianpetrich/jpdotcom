@@ -1,0 +1,10 @@
+django
+whitenoise
+environs
+psycopg2-binary
+gunicorn
+dj-database-url
+pillow
+django-debug-toolbar
+dj3-cloudinary-storage
+cloudinary

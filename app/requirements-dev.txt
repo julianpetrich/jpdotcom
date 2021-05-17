@@ -1,0 +1,10 @@
+pytest
+pytest-django
+pytest-cov
+safety
+bandit
+black
+flake8
+isort
+
+-r requirements.txt
