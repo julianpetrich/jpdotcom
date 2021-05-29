@@ -6,7 +6,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Julian Petrich">
+
     <title>{% block title %}Julian Petrich{% endblock title %}</title>
+
+    {% block meta %}
+    {% endblock meta %}
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -20,26 +26,26 @@
     <!-- Header -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light p-3">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'assets/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
                 Julian Petrich
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#what">What</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#about">About</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#projects">Projects</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'post_list' %}">Case Studies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#contact">Contact</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -47,36 +53,29 @@
     </nav>
 
     <main>
-        <div class="container my-5">
-            <div class="row d-flex justify-content-center">
-                <div class="col-10">
-                    {% block content %}
-                    {% endblock content %}
-                </div>
-            </div>
-        </div>
+        {% block content %}
+        {% endblock content %}
     </main>
 
     <!-- Footer -->
     <footer class="bg-dark text-center">
         <div class="p-5 text-light">
-            <img src="{{ MEDIA_URL}}/assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            <span class="lead">Julian Petrich</span>
+            <ul class="list-unstyled">
+                <li class="d-inline"><span class="lead">Julian Petrich</span></li>
+            </ul>
+            <ul class="list-unstyled">
+                <li class="d-inline"><a class="" aria-current="page" href="{% url 'home' %}">Home</a></li> -
+                <li class="d-inline"><a class="" aria-current="page" href="{% url 'about' %}">About</a></li> -
+                <li class="d-inline"><a class="" aria-current="page" href="{% url 'post_list' %}">Case Studies</a></li>
+            </ul>
+            <ul class="list-unstyled">
+                <li class="d-inline"><a class="" aria-current="page" href="{% url 'privacy' %}">Privacy</a></li> -
+                <li class="d-inline"><a class="" aria-current="page" href="{% url 'terms' %}">Terms</a></li>
+            </ul>
             <ul class="list-unstyled">
                 <li>
-                    <a href="#" class="text-light">Home</a>
-                    <a href="#" class="text-light">About</a>
-                    <a href="#" class="text-light">Portfolio</a>
-                </li>
-
-                <li>
-                    <a href="#" class="text-light">Privacy</a>
-                    <a href="#" class="text-light">Terms</a>
-                </li>
-                <br>
-                <li>
-                    <a href="mailto:julian@julianpetrich.com"><i id="social-em" class="fab fa-github-square fa-2x social"></i></a>
-                    <a href="mailto:julian@julianpetrich.com"><i id="social-em" class="fab fa-linkedin fa-2x social"></i></a>
+                    <a href="https://github.com/julianpetrich/"><i id="social-em" class="fab fa-github-square fa-2x social"></i></a>
+                    <a href="https://www.linkedin.com/in/julianpetrich/"><i id="social-em" class="fab fa-linkedin fa-2x social"></i></a>
                     <a href="mailto:julian@julianpetrich.com"><i id="social-em" class="fa fa-envelope-square fa-2x social"></i></a>
                 </li>
             </ul>
@@ -89,6 +88,8 @@
             integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
             crossorigin="anonymous">
     </script>
+
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
 
 </body>
 </html>

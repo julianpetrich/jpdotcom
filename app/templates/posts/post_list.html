@@ -1,18 +1,46 @@
 <!-- templates/article_list.html -->
 {% extends '_base.html' %}
+{% load static %}
 
-{% block title %}Posts{% endblock title %}
+{% block title %}Case Studies{% endblock title %}
+
+{% block meta %}
+
+    <meta name="description" property="og:description" content="This is Julian Petrich's Data Science portfolio.">
+    <meta name="keywords" content="data science, machine learning, python, r, sql, deep learning, analytics">
+
+    <meta property="og:url" content="www.julianpetrich.com" />
+    <meta property="og:title" content="Julian Petrich" />
+    <meta property="og:image" content="{% static 'images/aboutme.png' %}" />
+    <meta property="og:image:alt" content="Julian Petrich Data Scientist and Machine Learning Engineer" />
+
+{% endblock meta %}
 
 {% block content %}
-  {% for post in post_list %}
-    <div class="card">
-      <div class="card-header">
-        <span class="font-weight-bold">{{ post.title }}</span> &middot;
-        <span class="text-muted">{{ article.date }}</span>
-      </div>
-        {{ post.description }}
-      </div>
+    <div class="container my-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                <h1>Case Studies</h1>
+                <p>Some cool copy.</p>
+                <div class="row d-flex">
+                    <div class="card-group">
+                        {% for post in post_list %}
+                            <div class="col-lg-6 p-3">
+                                <div class="card">
+                                    <img src="{{ post.cover.url }}" class="card-img-top" alt="{{ post.description_alt }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ post.title }}</h5>
+                                        {% if post.industry %}<p class="card-text text-muted">{{ post.description_short }}</p>{% endif %}
+                                        <p class="card-text">{{ post.description_short }}</p>
+                                        {% if post.tags %}<p class="card-text text-muted">Tags: {{ post.tags }}</p>{% endif %}
+                                        <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if forloop.counter|divisibleby:"2" %}</div><div class="card-group">{% endif %}
+                    {% endfor %}
+            </div>
+            </div>
+        </div>
     </div>
-    <br />
-  {% endfor %}
 {% endblock content %}

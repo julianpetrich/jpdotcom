@@ -1,6 +1,39 @@
 <!-- templates/home.html -->
 {% extends '_base.html' %}
+{% load static %}
+
+{% block meta %}
+
+    <meta name="description" property="og:description" content="This is Julian Petrich's Data Science portfolio.">
+    <meta name="keywords" content="data science, machine learning, python, r, sql, deep learning, analytics">
+
+    <meta property="og:url" content="www.julianpetrich.com" />
+    <meta property="og:title" content="Julian Petrich" />
+    <meta property="og:image" content="{% static 'images/aboutme.png' %}" />
+    <meta property="og:image:alt" content="Julian Petrich Data Scientist" />
+
+{% endblock meta %}
+
 {% block content %}
-    {% include 'pages/about.html' %}
-    {% include 'pages/projects.html' %}
+
+    {% include 'home/section-hero.html' %}
+    {% include 'home/section-mission.html' %}
+
+    <div class="jumbotron banner-div d-flex jumbotron-fluid">
+        <div class="container my-5 align-self-center">
+            <div class="row d-flex justify-content-center">
+                <div class="col-10">
+                    <h2>Make data work for you.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'home/section-project-1.html' %}
+    {% include 'home/section-project-2.html' %}
+    {% include 'home/section-about.html' %}
+    {% include 'home/section-projects.html' %}
+    {% include 'home/section-review-home.html' %}
+    {% include 'home/section-contact.html' %}
+
 {% endblock content %}

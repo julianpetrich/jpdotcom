@@ -1,0 +1,29 @@
+<!-- templates/pages/privacy.html -->
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Privacy{% endblock title %}
+
+{% block meta %}
+
+    <meta name="description" property="og:description" content="This is Julian Petrich's Data Science portfolio.">
+    <meta name="keywords" content="data science, machine learning, python, r, sql, deep learning, analytics">
+
+    <meta property="og:url" content="www.julianpetrich.com" />
+    <meta property="og:title" content="Julian Petrich" />
+    <meta property="og:image" content="{% static 'images/aboutme.png' %}" />
+    <meta property="og:image:alt" content="Julian Petrich Data Scientist" />
+
+{% endblock meta %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                <h1>Privacy</h1>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

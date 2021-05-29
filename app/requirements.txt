@@ -8,3 +8,4 @@ pillow
 django-debug-toolbar
 dj3-cloudinary-storage
 cloudinary
+fontawesome-free
