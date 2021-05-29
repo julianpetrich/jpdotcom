@@ -1,5 +1,4 @@
 from django.views.generic import TemplateView
-
 from posts.models import Post
 
 
