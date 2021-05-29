@@ -1,21 +1,22 @@
 from django.views.generic import TemplateView
+
 from posts.models import Post
 
 
 class AboutView(TemplateView):
-    template_name = 'pages/about.html'
+    template_name = "pages/about.html"
 
 
 class ContactView(TemplateView):
-    template_name = 'pages/contact.html'
+    template_name = "pages/contact.html"
 
 
 class TermsView(TemplateView):
-    template_name = 'pages/terms.html'
+    template_name = "pages/terms.html"
 
 
 class PrivacyView(TemplateView):
-    template_name = 'pages/privacy.html'
+    template_name = "pages/privacy.html"
 
 
 class HomePageView(TemplateView):

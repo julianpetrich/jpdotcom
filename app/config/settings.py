@@ -10,9 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import socket
+import sys
 from pathlib import Path
 
 from environs import Env
+
+sys.modules["fontawesome_free"] = __import__("fontawesome-free")
 
 env = Env()
 env.read_env()
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "fontawesome_free",
     "cloudinary_storage",
     "cloudinary",
     "posts",

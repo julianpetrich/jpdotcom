@@ -25,8 +25,8 @@ def test_posts_context(client, create_post):
 
 @pytest.mark.django_db
 def test_post_detail_view(create_post, client):
-    post = create_post(title="post_title")
-    url = reverse("post_detail", kwargs={"pk": post.pk})
+    post = create_post(title="post_title", slug='post')
+    url = reverse("post_detail", kwargs={"slug": post.slug})
     response = client.get(url)
     assert response.status_code == 200
     assert b"post_title" in response.content
@@ -34,15 +34,15 @@ def test_post_detail_view(create_post, client):
 
 @pytest.mark.django_db
 def test_post_detail_template(create_post, client):
-    post = create_post(title="post_title")
-    url = reverse("post_detail", kwargs={"pk": post.pk})
+    post = create_post(title="post_title", slug='post')
+    url = reverse("post_detail", kwargs={"slug": post.slug})
     response = client.get(url)
     assertTemplateUsed(response, "posts/post_detail.html")
 
 
 @pytest.mark.django_db
 def test_post_detail_context(client, create_post):
-    post = create_post(title="post_title")
-    url = reverse("post_detail", kwargs={"pk": post.pk})
+    post = create_post(title="post_title", slug='post')
+    url = reverse("post_detail", kwargs={"slug": post.slug})
     response = client.get(url)
     assert "post" in response.context
