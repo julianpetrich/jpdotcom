@@ -1,22 +1,157 @@
-{%  load static %}
-<div class="container p-5" id="about">
-    <div class="row justify-content-md-center">
-        <div class="col-lg-5">
-            <img src="{% static 'images/aboutme.png' %}" class="img-fluid mx-auto d-block">
-        </div>
-        <div class="col-lg-4">
-            <h2>Hi, I am Julian…</h2>
-            <p>I am very direct and honest – both in my personal and professional life.
-                So please don’t expect any sugar-coating.</p>
-            <p>This no-bullshit approach translates perfectly into helping you get the most out of your data.
-                <em>effectively</em>.</p>
-            <p>I am not going to fetishize iterations to improve a model’s accuracy by 0.0001%.
-                I rather stay focused on the problem we are <strong>actually</strong> trying to solve.
-                Will that 0.0001% improvement actually add significant value to your business?
-                If any at all, it will be marginal. And even worse,
-                the costs will not justify that tiny bit of improvement.</p>
-            <p>Understanding your context will help us find solutions that are actually meaningful to your business.
-                In the end, I am here to solve your problems and to make your life easier.</p>
+<!-- templates/pages/aboutme.html -->
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}About{% endblock title %}
+
+{% block meta %}
+
+    <meta name="description" property="og:description" content="This is Julian Petrich's Data Science portfolio.">
+    <meta name="keywords" content="data science, machine learning, python, r, sql, deep learning, analytics">
+
+    <meta property="og:url" content="www.julianpetrich.com" />
+    <meta property="og:title" content="Julian Petrich" />
+    <meta property="og:image" content="{% static 'images/aboutme.png' %}" />
+    <meta property="og:image:alt" content="Julian Petrich Data Scientist" />
+
+{% endblock meta %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                <div class="row justify-content-md-center d-flex">
+                    <div class="col-12 my-3">
+                        <h1>Hi, I am Julian…</h1>
+                    </div>
+                    <div class="col-lg-7 align-self-end">
+                        <img src="{% static 'images/aboutme.png' %}" class="img-fluid mx-auto d-block" alt="about Julian Petrich portrait">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>I am very direct and honest – both in my personal and professional life.
+                            So please don’t expect any sugar-coating.</p>
+                        <p>This no-bullshit approach translates perfectly into helping you get the most out of your data.
+                            <em>effectively</em>.</p>
+                        <p>I am not going to fetishize iterations to improve a model’s accuracy by 0.0001%.
+                            I rather stay focused on the problem we are <strong>actually</strong> trying to solve.
+                            Will that 0.0001% improvement actually add significant value to your business?
+                            If any at all, it will be marginal. And even worse,
+                            the costs will not justify that tiny bit of improvement.</p>
+                        <p>Understanding your context will help us find solutions that are actually meaningful to your business.
+                            In the end, I am here to solve your problems and to make your life easier.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <div class="jumbotron banner-div d-flex jumbotron-fluid">
+        <div class="container my-5 align-self-center">
+            <div class="row d-flex justify-content-center">
+                <div class="col-10">
+                    <h2>Make data work for you.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                <div class="row justify-content-md-center d-flex">
+                    <div class="col-lg-4">
+                        <h1>Let's talk tech</h1>
+                        <p>My tech stack is mostly comprised of open-source technologies for extra flexibility
+                            and customizability. This is a snippet of tools that I use regularly.</p>
+                    </div>
+
+                    <div class="col-lg-8 align-self-center">
+                        <div class="row row-cols-4 logo-grid p-3">
+                            <div class="col-4 d-flex justify-content-center">
+                                <img class="img-responsive" src="{% static 'images/tech_logos/python_logo.png' %}">
+                            </div>
+                            <div class="col-4 d-flex justify-content-center">
+                                <img class="img-responsive" src="{% static 'images/tech_logos/r_logo.png' %}">
+                            </div>
+                            <div class="col-4 d-flex justify-content-center">
+                                <img class="img-responsive" src="{% static 'images/tech_logos/sql_logo.png' %}">
+                            </div>
+                        </div>
+                        <div class="row row-cols-4 logo-grid p-3">
+                            <div class="col-4 d-flex justify-content-center">
+                                <img class="img-responsive" src="{% static 'images/tech_logos/tensorflow_logo.png' %}">
+                            </div>
+                            <div class="col-4 d-flex justify-content-center">
+                                <img class="img-responsive" src="{% static 'images/tech_logos/pytorch_logo.png' %}">
+                            </div>
+                            <div class="col-4 d-flex justify-content-center">
+                                <img class="img-responsive" src="{% static 'images/tech_logos/git_logo.png' %}">
+                            </div>
+                        </div>
+                        <div class="row row-cols-4 logo-grid p-3">
+                            <div class="col-4 d-flex justify-content-center">
+                                <img class="img-responsive" src="{% static 'images/tech_logos/aws_logo.png' %}">
+                            </div>
+                            <div class="col-4 d-flex justify-content-center">
+                                <img class="img-responsive" src="{% static 'images/tech_logos/azure_logo.png' %}">
+                            </div>
+                            <div class="col-4 d-flex justify-content-center">
+                                <img class="img-responsive" src="{% static 'images/tech_logos/tableau_logo.png' %}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid about-div">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-10">
+                    <div class="row justify-content-md-center d-flex p-5">
+                        <div class="col-lg-3 align-self-center d-flex justify-content-center">
+                            <img class="rounded-circle" src="{% static 'images/aboutme.png' %}">
+                        </div>
+                        <div class="col-lg-9">
+                            <p>
+                                asd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asd
+                                asd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asdasd
+                                asd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asd
+                                asd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asdasd
+                                asd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asd
+                                asd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asdasd asdasd asdas dasdasd asdasd
+                            </p>
+                            <strong>Some dude,</strong>
+                            <i>Some position,</i> some company
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                <div class="row justify-content-md-center d-flex">
+                    <div class="col-lg-5">
+                        <h1>Let's have a chat!</h1>
+                        <p>Let’s have a chat about how we can make data work for you.
+                            Feel free to reach out via <a href="mailto:julian@julianpetrich.com">julian@julianpetrich.com</a>
+                            or <a href="https://www.linkedin.com/in/julianpetrich/">LinkedIn</a>.
+                        </p>
+                        <p>
+                            Need some new creative ideas and inputs?
+                            Check out my case studies or my <a href="https://github.com/julianpetrich">Github</a>
+                            and get some inspiration right away.
+                        </p>
+                    </div>
+                    <div class="col-lg-7 align-self-center">
+                        <img src="{% static 'images/mission.png' %}" class="img-fluid mx-auto d-block" alt="what is Julian all about">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock content %}

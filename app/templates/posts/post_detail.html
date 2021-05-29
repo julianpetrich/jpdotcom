@@ -1,10 +1,58 @@
 <!-- templates/post_detail.html -->
 {% extends '_base.html' %}
 
+{% block title %}{{ post.title }}{% endblock title %}
+
+{% block meta %}
+
+    <meta name="description" property="og:description" content="{{ post.description_short }}">
+    <meta name="keywords" content="{{ post.tags }}">
+
+    <meta property="og:url" content="www.julianpetrich.com{{ post.get_absolute_url }}" />
+    <meta property="og:title" content="{{ post.title }}" />
+    <meta property="og:image" content="{{ post.cover.url }}" />
+    <meta property="og:image:alt" content="{{ post.description_alt }}" />
+
+{% endblock meta %}
+
 {% block content %}
-    <div class="post-entry">
-        <h2>{{ post.title }}</h2>
-        <img class="card-img-top" src="{{ post.cover.url }}" alt="{{ post.description_alt }}">
-        <p>{{ post.description_long }}</p>
+
+    <div class="container my-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                <div class="row d-flex">
+                    <div class="col-lg-5">
+                        <h1>{{ post.title }}</h1>
+                        <p>{{ post.description_long }}</p>
+
+                        {% if post.website %}
+                            <h6>Website:</h6>
+                            <p>
+                                <a href="https://{{ post.website }}">{{ post.website }}</a>
+                            </p>
+                        {% endif %}
+
+                        {% if post.industry %}
+                            <h6>Industry:</h6>
+                            <p>post.industry</p>
+                        {% endif %}
+
+
+                        {% if post.tags %}
+                            <h6>Tags:</h6>
+                            <p>{{ post.tags }}</p>
+                        {% endif %}
+
+                        <h6>Date:</h6>
+                        <p>{{ post.date }}</p>
+
+                    </div>
+                    <div class="col-lg-7 align-self-baseline">
+                        <img src="{{ post.cover.url }}" alt="{{ post.description_alt }}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 {% endblock content %}
