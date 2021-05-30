@@ -1,13 +1,12 @@
 from django.contrib.sitemaps import Sitemap
-
+from django.urls import reverse
 from posts.models import Post
 
-from django.urls import reverse
 
 class PostSitemap(Sitemap):
-    changefreq = 'monthly'
+    changefreq = "monthly"
     priority = 0.9
-    protocol = 'https'
+    protocol = "https"
 
     def items(self):
         return Post.objects.all()
@@ -17,12 +16,12 @@ class PostSitemap(Sitemap):
 
 
 class StaticSitemap(Sitemap):
-    changefreq = 'yearly'
+    changefreq = "yearly"
     priority = 0.8
-    protocol = 'https'
+    protocol = "https"
 
     def items(self):
-        return ['home', 'about', 'contact']
+        return ["home", "about", "contact"]
 
     def location(self, item):
         return reverse(item)
