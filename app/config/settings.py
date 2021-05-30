@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
     "debug_toolbar",
     "fontawesome_free",
     "cloudinary_storage",
@@ -53,6 +55,8 @@ INSTALLED_APPS = [
     "posts",
     "pages",
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
